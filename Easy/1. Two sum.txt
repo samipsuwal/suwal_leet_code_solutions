@@ -1,0 +1,20 @@
+//https://leetcode.com/problems/two-sum/
+	//n^2 solution. 
+	//iterate through the list, for each number iterate again to find another number with whom the sum will match our target
+	//note their indexes and return as a solution
+	public static int[] TwoSum(int[] nums, int target)
+	{
+		for ( int firstIndex = 0;  firstIndex < nums.Length;  firstIndex++)
+		{
+			for ( int secondIndex = firstIndex+1; secondIndex < nums.Length; secondIndex++)
+			{
+				if (nums[firstIndex] + nums[secondIndex] == target)
+				{
+					//return our first and secondindex into a new int array
+					return new int[2] {firstIndex, secondIndex};
+				}
+			}
+		}
+		//since the question guarantees a solution, this method  is here just to make the Compiler happy
+		return  new int[2]{0, 0};
+	}

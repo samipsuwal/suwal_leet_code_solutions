@@ -1,0 +1,109 @@
+//https://leetcode.com/problems/roman-to-integer/
+        //Roman to Integer
+        public static int RomanToInt(String romanNumeral)
+        {
+            int transcribedNumber = 0;
+            //iterate through each character of the romanNumeral
+            for (int i = 0; i < romanNumeral.Length; i++)
+            {
+                switch (romanNumeral[i])
+                {
+                    case 'I':
+                        //make sure its not the last character otherwise array out of bound would be thrown
+                        if (i == romanNumeral.Length -1)
+                        {
+                            transcribedNumber++;
+                            break;
+                        }
+                        //if we get here, there is a follow up letter
+                        //if the following char is V or X we need to add 4 or 9 and move the index
+                        if (romanNumeral[i + 1] == 'V')
+                        {
+                            transcribedNumber = transcribedNumber + 4;
+                            i++;
+                        }
+                        else if (romanNumeral[i + 1] == 'X')
+                        {
+                            transcribedNumber = transcribedNumber + 9;
+                            i++;
+                        }
+                        else
+                        {
+                            transcribedNumber++;
+                        }
+                        break;
+
+                    case 'V':
+                        transcribedNumber+=5;
+                        break;
+
+                    case 'X':
+                        //make sure its not the last character otherwise array out of bound would be thrown
+                        if (i == romanNumeral.Length - 1)
+                        {
+                            transcribedNumber = transcribedNumber + 10;
+                            break;
+                        }
+
+                        //if the following char is L or C we need to add 40 or 90 and move the index
+                        if (romanNumeral[i + 1] == 'L')
+                        {
+                            transcribedNumber = transcribedNumber + 40;
+                            i++;
+                        }
+                        else if (romanNumeral[i + 1] == 'C')
+                        {
+                            transcribedNumber = transcribedNumber + 90;
+                            i++;
+                        }
+                        else
+                        {
+                            transcribedNumber = transcribedNumber + 10;
+                        }
+
+                        break;
+                        
+                    case 'L':
+                        transcribedNumber = transcribedNumber + 50;
+                        break;
+
+                    case 'C':
+                        //make sure its not the last character otherwise array out of bound would be thrown
+                        if (i == romanNumeral.Length - 1)
+                        {
+                            transcribedNumber = transcribedNumber + 100;
+                            break;
+                        }
+
+                        //if the following char is D or M we need to add 40 or 90 and move the index
+                        if (romanNumeral[i + 1] == 'D')
+                        {
+                            transcribedNumber = transcribedNumber + 400;
+                            i++;
+                        }
+                        else if (romanNumeral[i + 1] == 'M')
+                        {
+                            transcribedNumber = transcribedNumber + 900;
+                            i++;
+                        }
+                        else
+                        {
+                            transcribedNumber = transcribedNumber + 100;
+                        }
+
+                        break;
+
+                    case 'D':
+                        transcribedNumber = transcribedNumber + 500;
+                        break;
+
+                    case 'M':
+                        transcribedNumber = transcribedNumber + 1000;
+                        break;
+
+                }
+                
+            }
+
+            return transcribedNumber;
+        }
