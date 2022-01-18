@@ -1,0 +1,47 @@
+//https://leetcode.com/problems/palindrome-number/
+        public static bool isPalindrome(int x)
+        {
+            //lets make copy of the original number
+            int originalNumber = x;
+
+            //if the int is less than 0 its not palindrome
+            if (x < 0)
+            {
+                return false;
+            }
+
+            //if the number is 0 its palindrome
+            if (x == 0){
+                return true;
+            }
+
+            //LIFO is a good way to do this without converting to string
+            //lets use stack as thts does the work for us
+            Stack<int> numbersStack = new Stack<int>();
+
+           //take the right most number and start putting in the stack 
+            do
+            {
+                numbersStack.Push(x % 10);
+                x = x / 10;
+            } while (x > 0);
+
+            int decCounter = 1, reversedNumber = 0, temp=0;//could do without temp, but its easy to read
+
+            //Reversed the number using the LIFO
+            do
+            {
+                temp = numbersStack.Pop();
+                reversedNumber += temp * decCounter;
+                decCounter = decCounter * 10;
+            } while (numbersStack.Count() != 0);
+
+            //Console.WriteLine(reversedNumber);
+
+            if (reversedNumber == originalNumber)
+            {
+                return true;
+            }
+            //number is not pali
+            return false;
+        }
