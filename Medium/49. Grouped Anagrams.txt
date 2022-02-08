@@ -1,0 +1,11 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        groupedAnagrams ={}
+        for s in strs:
+            sortedString = ''.join(sorted(s))
+            if sortedString not in groupedAnagrams.keys()    :
+                groupedAnagrams[sortedString] = [s]
+            else:
+                groupedAnagrams[sortedString] += [s]
+
+        return list(groupedAnagrams.values())

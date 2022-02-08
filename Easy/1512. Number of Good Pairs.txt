@@ -1,0 +1,19 @@
+class Solution:
+    def numIdenticalPairs(self, nums: List[int]) -> int:
+        aDict = {}
+    
+        for i in nums:
+            if i in aDict.keys():
+                aDict[i] = aDict[i] + 1
+            else:
+                aDict[i]=1
+
+        #print(aDict)
+        goodPairs =0
+        for i in nums:
+            if i in aDict.keys() and aDict[i] >= 2:
+                goodPairs+= aDict[i] -1
+                aDict[i] = aDict[i]-1
+
+
+        return goodPairs

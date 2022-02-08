@@ -1,0 +1,15 @@
+class Solution:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        stonesDict = {}
+
+        for s in stones:
+            if s in stonesDict:
+                stonesDict[s]  += 1
+            else:
+                stonesDict[s] = 1
+        count  = 0    
+        for s in jewels:
+            if s in stonesDict:
+                count += stonesDict[s]
+
+        return count
