@@ -1,0 +1,20 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        li = []
+        for a in s:
+            if len(li) > 0:
+                if a == ")" and li[-1] == "(":
+                    li.pop()
+                elif a == "}" and li[-1] == "{":
+                    li.pop()
+                elif a == "]" and li[-1] == "[":
+                    li.pop()
+                else:
+                    li.append(a)
+            else:
+                li.append(a)
+
+        if len(li) == 0:
+            return True
+
+        return False
