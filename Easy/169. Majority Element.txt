@@ -1,0 +1,19 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        aDict ={}
+        for n in nums:
+            if n not in aDict.keys():
+                aDict[n] = 1
+            else:
+                aDict[n] +=1
+
+        #li = list(aDict.values())
+
+        max= 0
+        maxNumber = 0
+        for k in aDict.keys():
+            if max< aDict[k]:
+                maxNumber = k
+                max = aDict[k]
+
+        return maxNumber
