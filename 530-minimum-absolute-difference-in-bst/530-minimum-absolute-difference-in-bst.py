@@ -26,8 +26,7 @@ class Solution:
         
         mini = sys.maxsize
         for i in range(len(li)-1):
-            if li[i+1] - li[i] < mini:
-                mini = li[i+1] - li[i]
+            mini = min(li[i+1] - li[i],mini)
         
         return mini
                     
