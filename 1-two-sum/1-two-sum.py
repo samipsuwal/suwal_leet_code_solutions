@@ -3,23 +3,17 @@ class Solution:
         #redoing this for O(n)
         #traverse through this setup a hashmap
 
+        #lot better implementation after watching the soluion, regarding duplicate keys
+        
         aDict = {}
+        
         for i in range(len(nums)):
-            if nums[i] not in aDict:
-                aDict[nums[i]] = [i]
-            else:
-                aDict[nums[i]].append(i)
-
-        print(aDict)
-        for i in aDict.keys():
-                if target-i in aDict.keys():
-                    if target-i !=i:
-                        return [aDict[i][0], aDict[target-i][0]]
-
-                    if (target-i == i) and len(aDict[i]) >=2:
-                        return [aDict[i][0], aDict[target-i][1]]
-
-        #will never hit since answer is guaranteed
-        return 0
+            aDict[nums[i]] = i
+            
+        for i in range(len(nums)):
+            compliment = target - nums[i]
+            if compliment in aDict and aDict[compliment] != i:
+                return [i, aDict[compliment]]
+        
                       
         
