@@ -11,14 +11,10 @@ class Solution:
         for i in range(n-2, -1,-1):
             if nums[i]>= n-i-1:
                 cans.append(i)
-                cans.sort()
-            elif nums[i] + i >= cans[0]:
+            elif nums[i] + i >= cans[len(cans)-1]:
                 cans.append(i)
-                cans.sort()
 
-
-        print(cans)
-        if cans[0] == 0:
+        if cans[len(cans)-1] == 0:
             return True
         else:
             return False
