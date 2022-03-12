@@ -1,7 +1,6 @@
 import copy
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        print(nums)
         if len(nums) ==1:
             return nums[0]
         
@@ -26,9 +25,6 @@ class Solution:
         costs[0] = nums[0]
         s_costs[0]= s_nums[0]
         
-        print(nums)
-        print(s_nums)
-        
         costs[1] = max(nums[0], nums[1])
         s_costs[1]= max(s_nums[0], s_nums[1])
         
@@ -36,9 +32,6 @@ class Solution:
         for i in range(2,n):
             costs[i] = max(nums[i]+costs[i-2], costs[i-1])
             s_costs[i] = max(s_nums[i]+s_costs[i-2], s_costs[i-1])
-            
-        print(s_costs)
-        print(costs)
             
         return max(s_costs[n-1], costs[n-1])
         
