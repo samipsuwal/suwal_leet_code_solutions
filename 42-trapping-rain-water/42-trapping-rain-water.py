@@ -4,7 +4,6 @@ class Solution:
         n= len(nums)
         leftMost=[0]*n
         rightMost = [0]*n
-        waterFill =[0]*n
 
         leftMost[0]=nums[0]
         leftMostHeight=nums[0]
