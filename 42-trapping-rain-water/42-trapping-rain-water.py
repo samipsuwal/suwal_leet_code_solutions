@@ -11,7 +11,6 @@ class Solution:
         rightMost[n-1] = nums[n-1]
         rightMostHeight=nums[n-1]
 
-
         for i in range(1, n):
             if nums[i]<leftMostHeight:
                 leftMost[i]=leftMostHeight
@@ -27,21 +26,13 @@ class Solution:
                 rightMostHeight = nums[i]
 
 
-        print(leftMost)
-        print(nums)
-        print(rightMost)
-
+        trapWater =0
         for i in range(1, n-1):
             mini = min(leftMost[i], rightMost[i])
             maxi = max(leftMost[i], rightMost[i])
             if nums[i]<mini and nums[i] <maxi:
-                waterFill[i] = mini - nums[i]
+                trapWater += mini - nums[i]
 
-        print(waterFill)
-
-        trapWater =0
-        for i in waterFill:
-            trapWater+=i
 
         return trapWater
                     
