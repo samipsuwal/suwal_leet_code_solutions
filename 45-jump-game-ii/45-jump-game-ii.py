@@ -23,10 +23,8 @@ class Solution:
                         shortestNumberOfJumps = steps
                 jumps-=1
 
-            if shortestNumberOfJumps!=None:
-                memo[idx] = shortestNumberOfJumps  
-            else:
-                memo[idx] =None
+            
+            memo[idx] = shortestNumberOfJumps  
             return memo[idx]
 
         return helper(0, nums,{})
