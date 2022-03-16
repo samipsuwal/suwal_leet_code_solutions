@@ -1,6 +1,5 @@
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
-        #wordDict.sort()
         def helper(s, wordDict, memo):
 
             if s in memo:
@@ -10,8 +9,8 @@ class Solution:
 
             for w in wordDict:
                 if s.startswith(w):
-                    memo[s] = helper(s[len(w):], wordDict, memo)
-                    if memo[s]==True:
+                    T = helper(s[len(w):], wordDict, memo)
+                    if T==True:
                         return True
 
             memo[s] = False
