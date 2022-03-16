@@ -15,5 +15,6 @@ class Solution:
 
             memo[s] = False
             return memo[s]
+            
 
         return helper(s, wordDict, {})
