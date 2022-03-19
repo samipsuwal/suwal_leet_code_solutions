@@ -14,6 +14,8 @@ class Solution:
         for i in range(truckSize):
             if units:
                 ans+= units.pop()
+            else:
+                break
             
         
         return ans
