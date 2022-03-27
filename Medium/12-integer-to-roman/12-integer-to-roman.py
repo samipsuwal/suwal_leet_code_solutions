@@ -22,20 +22,13 @@ class Solution:
             
             return dict[digit][place]
             
-            
-            
-            
-        li =[]
+        ans=""
         place =1
         while num > 0:
             digit = num%10
-            li.append(getRomanOfDigit(digit, place))
+            ans = getRomanOfDigit(digit, place)+ans
             place+=1
             num = num//10
-            
-        ans=""
-        for i in reversed(li):
-            ans+= i
             
         return ans
             
