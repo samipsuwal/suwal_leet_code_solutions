@@ -26,6 +26,9 @@ public class Solution {
             // move left forward
             while (sum >= target) {
                 minArr = Math.Min(j - i +1, minArr);
+                if (minArr == 1) {
+                    return 1;
+                }
                 solnFound = true;
                 sum = sum - nums[i];
                 i++;
