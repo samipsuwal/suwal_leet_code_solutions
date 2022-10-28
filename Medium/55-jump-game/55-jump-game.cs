@@ -1,7 +1,6 @@
 public class Solution {
     public bool CanJump(int[] nums) {
-        int len = nums.Length;
-        
+        int len = nums.Length;        
         if (len ==1) {
             return true;
         }
@@ -14,9 +13,6 @@ public class Solution {
             }
         }
         
-        if (lastIndex ==0) return true;
-        return false;
+        return lastIndex == 0;
     }
-    
-    
 }
