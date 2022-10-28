@@ -4,8 +4,6 @@ public class Solution {
         int n = nums.Length;
         if (n ==1) return 0;
         
-        
-        
         int[] cans = new int[n];
         
         for (int i = n-2; i >=0; i--){
@@ -21,14 +19,11 @@ public class Solution {
             int minStep = n;
             bool canJump = false;
             while (candi>0){
-                // current step + candidate can jump over
-               /* if (nums[i] + cans[candi+i]>= n-i -1){
-                    minStep = Math.Min(minStep, cans[candi+i]+1);  
-                }*/
                 if (cans[candi+i]>0){
                     minStep = Math.Min(minStep, cans[candi+i]+1);    
                     canJump = true;
                 }
+                if(minStep ==2)break;
                 candi--;
             }
             if (canJump)
